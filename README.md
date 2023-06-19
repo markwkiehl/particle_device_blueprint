@@ -21,9 +21,9 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
 - A button widget on the Blynk web dashboard and mobile app will be configured to turn a built-in LED on the Particle device on or off.  
 
 # Components Used in This Project
-- Particle Console to set up the Webhook and activate the Hardware
-- Blynk Console and Blynk App for web and mobile dashboards
-- Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware
+- [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
+- Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android?_gl=1*hxem43*_ga*NTQ1NjUzMTkwLjE2NjY1NTA3MTk.*_ga_E376ZQ635Y*MTY4NzE3MTI1Mi44OC4xLjE2ODcxNzEyNTQuMC4wLjA.) for web and mobile dashboards
+- Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware.
 - Particle IoT device:
   - **Tracker One** is complete system including an enclosure. It also comes as a SoM (system on module) known as **Tracker SoM**.  See [Tracker button and LEDs](https://docs.particle.io/hardware/tracker/projects/tracker-buttons-leds/) for details on how to add an LED to the Tracker One. 
   - All **Boron** cellular devices, including those that are depreciated. &nbsp; All have a built-in LED is on D7.
