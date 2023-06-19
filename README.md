@@ -17,6 +17,8 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
 
 ## Functional Requirements
 - The firmware on the Particle device will push data in the form of an integer value, floating point number (sensor value), and the BLYNK AUTH TOKEN
+- A date/time stamp in UTC will be included with data sent to Blynk so the last time data was sent will be visible.
+- A button widget on the Blynk web dashboard and mobile app will be configured to turn a built-in LED on the Particle device on or off.  
 
 # Components Used in This Project
 
