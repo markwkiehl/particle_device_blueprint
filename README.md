@@ -26,7 +26,7 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
 - Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware
 - Particle IoT device:
   - **Tracker One** is complete system including an enclosure. It also comes as a SoM (system on module) known as **Tracker SoM**.  See [Tracker button and LEDs](https://docs.particle.io/hardware/tracker/projects/tracker-buttons-leds/) for details on how to add an LED to the Tracker One. 
-  - All **Boron** devices in the Feather hardware format, including those that are depreciated. &nbap; All are cellular devices. &nbsp; A built in LED is on D7.
+  - All **Boron** cellular devices, including those that are depreciated. &nbsp; All have a built-in LED is on D7.
   - **B Series SoM** system-on-a-module. &nbsp; No built-in LED, must custom install.  
   - **Photon 2** is a WiFi device with built in LED is on D7.
   - **Argon** is a WiFi device with built in LED is on D7.
