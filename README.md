@@ -4,6 +4,11 @@ Connect a Particle IoT device to Blynk
 # Introduction
 This blueprint will configure bi-directional communication between any [Particle](https://www.particle.io/) device and [Blynk IoT](https://blynk.io/). &nbsp; Both a Blynk web dashboard and mobile app will be generated that will display data from the Particle device, and they will be used to control the Particle device remotely.  
 
+## Functional Requirements
+- The firmware on the Particle device will push data consisting of an integer value, floating point number (sensor value), and the BLYNK AUTH TOKEN. 
+- A date/time stamp in UTC will be included with data sent to Blynk so the last time data was sent will be visible.
+- A button widget on the Blynk web dashboard and mobile app will be configured to turn a built-in LED on the Particle device on or off.  
+
 # How It Works
 Data is pushed from the Particle device to a Particle integration webhook. &nbsp; The webhook makes a call to the Blynk HTTP API and updates the Blynk datastreams on the Blynk cloud. &nbsp; The updated datastreams cause the Blynk web dashboard and mobile app widgets to be updated.  
 
@@ -14,11 +19,6 @@ All communication between the Particle device and Blynk will utilize the Blynk H
 The BLYNK AUTH TOKEN will be sent by the device with each data packet and the Particle webhook will pass this on when it communicates with Blynk via the Blynk HTTP API.  This allows the same Particle integration webhooks to be used with multiple Particle devices.  
 
 The Blynk webhook called by the Blynk web or mobile app widget makes a call to the Particle API for a Particle cloud function with a device unique token.  The Particle cloud function running on the Particle hardware performs and action in response to the call, and responds the the API call with a result code.   
-
-## Functional Requirements
-- The firmware on the Particle device will push data consisting of an integer value, floating point number (sensor value), and the BLYNK AUTH TOKEN. 
-- A date/time stamp in UTC will be included with data sent to Blynk so the last time data was sent will be visible.
-- A button widget on the Blynk web dashboard and mobile app will be configured to turn a built-in LED on the Particle device on or off.  
 
 # Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
