@@ -5,7 +5,7 @@ Connect a Particle IoT device to Blynk
 This blueprint will configure bi-directional communication between any [Particle](https://www.particle.io/) device and [Blynk IoT](https://blynk.io/). &nbsp; Both a Blynk web dashboard and mobile app will be generated that will display data from the Particle device, and they will be used to control the Particle device remotely.  
 
 ## Functional Requirements
-- The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source).
+- The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware).
 - A date/time stamp in UTC must be included with data sent to Blynk so the last time data was sent will be visible.
 - The last integer value, floating point value, and UTC datetime stamp must be displayed on the web dashboard and mobile app.
 - The historical values for the integer and floating point value must be displayed in a line chart.  
