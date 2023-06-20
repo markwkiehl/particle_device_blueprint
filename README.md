@@ -10,7 +10,7 @@ This blueprint will configure bi-directional communication between any [Particle
 - The last integer value, floating point value, and UTC datetime stamp must be displayed on the web dashboard and mobile app.
 - The historical values for the integer and floating point value must be displayed in a line chart.  
 - Multiple Particle devices must be able to use the same Particle webhook. 
-- A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED if available.  
+- A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED).  
 
 # How It Works
 Data is pushed from the Particle hardware to a Particle integration webhook. &nbsp; The webhook makes a call to the Blynk HTTP API and updates the Blynk datastreams on the Blynk cloud. &nbsp; The updated datastreams cause the Blynk web dashboard and mobile app widgets configured for those datastreams to be updated.  
