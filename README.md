@@ -22,9 +22,9 @@ The firmware sketch sends an integer value from the millis() function (number of
 
 Widgets on the Blynk web dashboard and mobile app trigger a Blynk webhook. &nbsp; The webhook makes a Particle HTTP API call that sends data to the Particle hardware. &nbsp; A firmware function on the Particle hardware reacts to the data received, and causes the hardware perform the custom action of toggling the state of the built-in LED. 
 
-The Blynk webhook called by the Blynk web or mobile app widget makes a call to the Particle API for a Particle cloud function with a device unique token.  The Particle cloud function running on the Particle hardware performs and action in response to the call, and responds to the API call with a result code.   
+The Blynk webhook called by the Blynk web or mobile app widget makes a call to the Particle API for a Particle cloud function with a device unique token. &nbsp; The Particle cloud function running on the Particle hardware performs and action in response to the call, and responds to the API call with a result code.   
 
-The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware.  The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to configure the Particle integration webhook, and the Blynk webhook.  
+The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to configure the Particle integration webhook, and the Blynk webhook.  
 
 # Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
