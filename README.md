@@ -10,10 +10,11 @@ This blueprint will configure bi-directional communication between any [Particle
 - The last integer value, floating point value, and UTC datetime stamp must be displayed on the web dashboard and mobile app.
 - The historical values for the integer and floating point value must be displayed in a line chart.  
 - Multiple Particle devices must be able to use the same Particle webhook. 
-- A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED).  
+- A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED).
+- Communication frequency must be configured to minimize data usage for the case when a cellular device is employed.  
 
 # How It Works
-Data is pushed from the Particle hardware to a Particle integration webhook. &nbsp; The webhook makes a call to the Blynk HTTP API and updates the Blynk datastreams on the Blynk cloud. &nbsp; The updated datastreams cause the Blynk web dashboard and mobile app widgets configured for those datastreams to be updated.  
+The firmware sketch sends an integer value from the millis() function (number of milliseconds elapsed since the device started) and a constant floating point value every 5 minutes. &nbsp; The data is pushed from the Particle hardware to a Particle integration webhook. &nbsp; The webhook makes a call to the Blynk HTTP API and updates the Blynk datastreams on the Blynk cloud. &nbsp; The updated datastreams cause the Blynk web dashboard and mobile app widgets configured for those datastreams to be updated.  
 
 Widgets on the Blynk web dashboard and mobile app trigger a Blynk webhook. &nbsp; The webhook makes a Particle HTTP API call that sends data to the Particle hardware. &nbsp; A firmware function on the Particle hardware reacts to the data received, and causes the hardware perform a custom action. 
 
@@ -36,11 +37,12 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
   - **Photon** is a WiFi device with built-in LED on D7.
   - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  
 
-The firmware sketch sends an integer value from the millis() function (number of milliseconds elapsed since the device started) and a constant floating point value. &nbsp; It is up to the developer to adapt these variables to the particular hardware and application that will be used. &nbsp;  It will be apparent from the content of the blueprint how to add additional data items to be pushed to Blynk.  &nbsp;
 
 The web and mobile app button widget toggles the state of a datastream of data type integer with the values of 1 and 0. &nbsp;   For a Boron in Feather format, GPIO D7 is utilized since it is connected to the built-in LED.  For other Particle hardware (without the built-in LED), the code will need to be adapted to specify a different GPIO, and the hardware connected to an LED.  
 
 # 1. Prepare Your Hardware
+The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware.  The device template, datastreams and a web dashboard and mobile app are all pre-configured.  Instructions are included later in this readme.md on how to configure the Particle integration webhook.  (TBD  will the Blynk webhook be automatically configured ???)
+
 
 # 2. Create Webhooks on the Particle Cloud
 
@@ -58,6 +60,7 @@ The web and mobile app button widget toggles the state of a datastream of data t
 # Conclusion
 
 # Next Steps
+The sketch sends an integer and floating point value every 5 minutes to Blynk.  The source of the integer and floating point value can be adapted to a particular application by the developer.  The interval default of 5 minutes can be reduced down to every 1 second.  It will be apparent to the developer from the content of the blueprint how to add additional data items to be pushed to Blynk.  &nbsp;
 
 # Troubleshooting
 
