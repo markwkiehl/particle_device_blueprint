@@ -6,8 +6,10 @@ This blueprint will configure bi-directional communication between any [Particle
 
 ## Functional Requirements
 - The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source).
-- Multiple Particle devices must be able to use the same Particle webhook. 
 - A date/time stamp in UTC must be included with data sent to Blynk so the last time data was sent will be visible.
+- The last integer value, floating point value, and UTC datetime stamp must be displayed on the web dashboard and mobile app.
+- The historical values for the integer and floating point value must be displayed in a line chart.  
+- Multiple Particle devices must be able to use the same Particle webhook. 
 - A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED if available.  
 
 # How It Works
