@@ -24,6 +24,8 @@ Widgets on the Blynk web dashboard and mobile app trigger a Blynk webhook. &nbsp
 
 The Blynk webhook called by the Blynk web or mobile app widget makes a call to the Particle API for a Particle cloud function with a device unique token.  The Particle cloud function running on the Particle hardware performs and action in response to the call, and responds to the API call with a result code.   
 
+The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware.  The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to configure the Particle integration webhook, and the Blynk webhook.  
+
 # Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
 - Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android?_gl=1*hxem43*_ga*NTQ1NjUzMTkwLjE2NjY1NTA3MTk.*_ga_E376ZQ635Y*MTY4NzE3MTI1Mi44OC4xLjE2ODcxNzEyNTQuMC4wLjA.) for web and mobile dashboards
@@ -36,30 +38,31 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
   - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  Replaces the depreciated P1. 
   - **Argon** is a depreciated WiFi device with built in LED is on D7.
   - **Photon** is a depreciated WiFi device with built-in LED on D7.
+  - **Electron** is a depreciated cellular device with built-in LED on D7.
+  - **E Series** is a cellular device.  No built-in LED.  
  
 # 1. Prepare Your Hardware
-The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware.  The device template, datastreams and a web dashboard and mobile app are all pre-configured.  Instructions are included later in this readme.md on how to configure the Particle integration webhook.  (TBD  will the Blynk webhook be automatically configured ???)
+If your devices has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron), then your hardware only needs a power connection.  Other devices will need to connect an LED to the Particle hardware and revise the sketch to reference a GPIO replacement for D7.  
 
+# 2. Create Integration (Webhook) on the Particle Cloud
 
-# 2. Create Webhooks on the Particle Cloud
+# 3. Create a Webhook in the Blynk.Console
 
-# 3. Prepare Required Software
+# 4. Prepare Required Software
 
-# 4. Prepare the Firmware and Upload It to Your Device
+# 5. Prepare the Firmware and Upload It to Your Device
 
-# 5. Dashboard Breakdown
-
-# 6. Set up Automations 
-[include this?]
+# 6. Dashboard Breakdown
 
 # 7. Testing
 
+# Troubleshooting
+
 # Conclusion
+Using this Blynk blueprint quickly configures a Particle device for bi-directional communication with Blynk. &nbsp; Blynk provides a web dashboard and mobile app for visualizing data from the Particle hardware, and remotely controlling the Particle device.  
 
 # Next Steps
 The sketch sends an integer and floating point value every 5 minutes to Blynk.  The source of the integer and floating point value can be adapted to a particular application by the developer.  The interval default of 5 minutes can be reduced down to every 1 second.  It will be apparent to the developer from the content of the blueprint how to add additional data items to be pushed to Blynk.  &nbsp;
-
-# Troubleshooting
 
 # Related Links
 
