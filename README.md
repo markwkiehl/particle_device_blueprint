@@ -20,7 +20,7 @@ The BLYNK AUTH TOKEN will be sent by the device with each data packet and the Pa
 
 The firmware sketch sends an integer value from the millis() function (number of milliseconds elapsed since the device started) and a constant floating point value every 5 minutes. &nbsp; The data is pushed from the Particle hardware to a Particle integration webhook. &nbsp; The webhook makes a call to the Blynk HTTP API and updates the Blynk datastreams on the Blynk cloud. &nbsp; The updated datastreams cause the Blynk web dashboard and mobile app widgets configured for those datastreams to be updated.  
 
-Widgets on the Blynk web dashboard and mobile app trigger a Blynk webhook. &nbsp; The webhook makes a Particle HTTP API call that sends data to the Particle hardware. &nbsp; A firmware function on the Particle hardware reacts to the data received, and causes the hardware perform a custom action. 
+Widgets on the Blynk web dashboard and mobile app trigger a Blynk webhook. &nbsp; The webhook makes a Particle HTTP API call that sends data to the Particle hardware. &nbsp; A firmware function on the Particle hardware reacts to the data received, and causes the hardware perform the custom action of toggling the state of the built-in LED. 
 
 The Blynk webhook called by the Blynk web or mobile app widget makes a call to the Particle API for a Particle cloud function with a device unique token.  The Particle cloud function running on the Particle hardware performs and action in response to the call, and responds to the API call with a result code.   
 
@@ -30,16 +30,13 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
 - Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware.
 - Any of the following Particle IoT devices:
   - **Tracker One** is complete system including an enclosure. It also comes as a SoM (system on module) known as **Tracker SoM**.  See [Tracker button and LEDs](https://docs.particle.io/hardware/tracker/projects/tracker-buttons-leds/) for details on how to add an LED to the Tracker One. 
-  - All **Boron** cellular devices, including those that are depreciated. &nbsp; All have a built-in LED is on D7.
+  - Any **Boron** cellular devices, including those that are depreciated. &nbsp; All have a built-in LED is on D7.
   - **B Series SoM** system-on-a-module. &nbsp; No built-in LED, must custom install.  
   - **Photon 2** is a WiFi device with built in LED is on D7.
-  - **Argon** is a WiFi device with built in LED is on D7.
-  - **Photon** is a WiFi device with built-in LED on D7.
-  - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  
-
-
-The web and mobile app button widget toggles the state of a datastream of data type integer with the values of 1 and 0. &nbsp;   For a Boron in Feather format, GPIO D7 is utilized since it is connected to the built-in LED.  For other Particle hardware (without the built-in LED), the code will need to be adapted to specify a different GPIO, and the hardware connected to an LED.  
-
+  - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  Replaces the depreciated P1. 
+  - **Argon** is a depreciated WiFi device with built in LED is on D7.
+  - **Photon** is a depreciated WiFi device with built-in LED on D7.
+ 
 # 1. Prepare Your Hardware
 The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware.  The device template, datastreams and a web dashboard and mobile app are all pre-configured.  Instructions are included later in this readme.md on how to configure the Particle integration webhook.  (TBD  will the Blynk webhook be automatically configured ???)
 
