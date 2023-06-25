@@ -43,7 +43,7 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
   - **Core** is a WiFi device with built-in LED on D7. 
  
 # 1. Prepare Your Hardware
-If your devices has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron), then your hardware only needs a power connection.  Other devices will need to connect an LED to the Particle hardware and revise the sketch to reference a GPIO replacement for D7.  
+If your device has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron), then your hardware only needs a power connection.  Other devices will need to connect an LED to the Particle hardware and revise the sketch to reference a GPIO replacement for D7.  
 
 # 2. Create Integration (Webhook) on the Particle Cloud
 
