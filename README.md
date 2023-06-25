@@ -63,7 +63,7 @@ If your device has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, 
 Using this Blynk blueprint quickly configures a Particle device for bi-directional communication with Blynk. &nbsp; Blynk provides a web dashboard and mobile app for visualizing data from the Particle hardware, and remotely controlling the Particle device.  
 
 # Next Steps
-The sketch sends an integer and floating point value every 5 minutes to Blynk.  The source of the integer and floating point value can be adapted to a particular application by the developer.  The interval default of 5 minutes can be reduced down to every 1 second.  It will be apparent to the developer from the content of the blueprint how to add additional data items to be pushed to Blynk.  &nbsp;
+The sketch sends an integer and floating point value every 5 minutes to Blynk. &nbsp; The source of the integer and floating point value can be adapted to a particular application by the developer. &nbsp; The interval default of 5 minutes can be reduced down to every 1 second. &nbsp; It will be apparent to the developer from the content of the blueprint how to add additional data items to be pushed to Blynk.  &nbsp;
 
 # Related Links
 
