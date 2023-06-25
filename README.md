@@ -39,7 +39,8 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
   - **Argon** is a depreciated WiFi device with built in LED is on D7.
   - **Photon** is a depreciated WiFi device with built-in LED on D7.
   - **Electron** is a depreciated cellular device with built-in LED on D7.
-  - **E Series** is a cellular device.  No built-in LED.  
+  - **E Series** is a cellular device.  No built-in LED.
+  - **Core** is a WiFi device with built-in LED on D7. 
  
 # 1. Prepare Your Hardware
 If your devices has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron), then your hardware only needs a power connection.  Other devices will need to connect an LED to the Particle hardware and revise the sketch to reference a GPIO replacement for D7.  
