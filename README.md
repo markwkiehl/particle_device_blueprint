@@ -76,15 +76,18 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
   - **Core** is a WiFi device with built-in LED on D7. 
  
 # 1. Prepare Your Hardware
-If your device has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron), then your hardware only needs a power connection.  Other devices will need to connect an LED to the Particle hardware and revise the sketch to reference a GPIO replacement for D7.  
+All Particle devices will require suitable power connection and either a cellular or WiFi connection. &nbsp; If your device has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) then nothing more is required. &nbsp; Devices without a built-in LED will be detected by the firmware and a virtual LED (Blynk widget) will be used instead. &nbsp;
 
-# 2. Create Integration (Webhook) on the Particle Cloud
+# 2. Get the Firmware and a Blynk AuthToken
+If you don't have a Blynk account, then create one. &nbsp; From the Blynk.Console, navigate to 'Templates' -> 'All Blueprints' -> 'Particle Device Blueprint'. &nbsp;
+After selecting the blueprint, choose the option 'Activate New Device' to generate a Blynk AuthToken. &nbsp; Keep that AuthToken in a safe place because you will need it later for TBD. &nbsp;  Generating the AuthToken will also make available the firmware for your Particle hardware. &nbsp; Upload that firmware to your Particle hardware. &nbsp;
 
-# 3. Create a Webhook in the Blynk.Console
+# 3. Create Integration (Webhook) on the Particle Cloud
+We are going to create a Particle integration webhook running on the Particle cloud that will accept the data from the Particle.publish() function executing on the device, and transform it into a HTTPs GET that will post data to the Blynk cloud, updating the corresponding Blynk datastream values.  
 
-# 4. Prepare Required Software
+# 4. Create a Webhook in the Blynk.Console
 
-# 5. Prepare the Firmware and Upload It to Your Device
+# 5. Prepare Required Software
 
 # 6. Dashboard Breakdown
 
