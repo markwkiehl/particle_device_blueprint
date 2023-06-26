@@ -20,11 +20,9 @@ The BLYNK AUTH TOKEN will be sent by the device with each data packet and the Pa
 
 The firmware sketch sends an integer value from the millis() function (number of milliseconds elapsed since the device started) and a constant floating point value every 5 minutes. &nbsp; The data is pushed from the Particle hardware to a Particle integration webhook. &nbsp; The webhook makes a call to the Blynk HTTP API and updates the Blynk datastreams on the Blynk cloud. &nbsp; The updated datastreams cause the Blynk web dashboard and mobile app widgets configured for those datastreams to be updated.  
 
-Widgets on the Blynk web dashboard and mobile app trigger a Blynk webhook. &nbsp; The webhook makes a Particle HTTP API call that sends data to the Particle hardware. &nbsp; A firmware function on the Particle hardware reacts to the data received, and causes the hardware perform the custom action of toggling the state of the built-in LED. 
+The Particle hardware will also be controlled remotely from the Blynk web dashboard or mobile app. &nbsp; When the state of the switch widget on the Blynk web dashboard and mobile app is changed, a Blynk webhook is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; A firmware function on the Particle hardware reacts to the data received, returns a result code, and causes the hardware perform the custom action of toggling the state of the built-in LED if the Particle hardware has one, otherwise a web dashboard and mobile app LED widget.  &nbsp;
 
-The Blynk webhook called by the Blynk web or mobile app widget makes a call to the Particle API for a Particle cloud function with a device unique token. &nbsp; The Particle cloud function running on the Particle hardware performs and action in response to the call, and responds to the API call with a result code.   
-
-The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to activate a new Blynk device, configure the Particle integration webhook, and how to create a Blynk webhook. &nbsp;
+The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to configure the Particle integration webhook, generate a Particle access token, and how to create a Blynk webhook. &nbsp;
 
 # Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
@@ -117,13 +115,21 @@ After you save your webhook, a summary of the configuration will be shown. &nbsp
 
 Note that we will be passing the unique BLYNK_AUTH_TOKEN defined in the firmware for each device to the Particle webhook as the variable ‘{{t}}’. &nbsp; This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes. &nbsp; You can learn more about Particle webhooks by visiting this [documentation link](https://docs.particle.io/reference/cloud-apis/webhooks/). 
 
-# 4. Create a Webhook in the Blynk.Console
+# 4. Create a Particle Access Token
 
-# 5. Prepare Required Software
+The Blynk webhook will need a Particle access token in order to make a Particle HTTP API call to the Particle cloud function. &nbsp;
 
-# 6. Dashboard Breakdown
+Create an access token by logging into your Particle account, and then visiting the Particle documentation section ‘[Create a token (browser-based)](https://docs.particle.io/reference/cloud-apis/access-tokens/#create-a-token-browser-based-)’. Use your Particle login email and password. If you have MFA (multi-factor authentication) enabled on your account, you will need your MFA code to generate the access token. Click the ‘Create token’ button to generate a token. Keep this token confidential. 
 
-# 7. Testing
+# 5. Create a Webhook in the Blynk.Console
+
+When the state of the switch widget on the Blynk web dashboard and mobile app is changed, a Blynk webhook is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
+
+# 6. Prepare Required Software
+
+# 7. Dashboard Breakdown
+
+# 8. Testing
 
 # Troubleshooting
 
