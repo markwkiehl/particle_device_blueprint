@@ -26,6 +26,20 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
 
 The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to configure the Particle integration webhook, and the Blynk webhook.  
 
+<table>
+  <tr>
+    <th>Datastream/Virtual Pin</th>
+    <th>Data Type</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>V6</td>
+    <td>last_publish</td>
+    <td>String</td>
+    <td>Last date/time data was published</td>
+  </tr>
+</table>
+
 |   V6   |   last_publish   |	  String   |	  Last date / time data was published   |
 |   V14   | millis()   | long   |   Number of seconds since the device started   |
 |   V15   | 3.14159   | double   |     Simulated sensor value   |
