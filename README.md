@@ -67,6 +67,7 @@ The sketch sends an integer and floating point value every 5 minutes to Blynk. &
 
 # Related Links
 [Connect Particle Device to Blynk](https://blynk.io/blog/how-to-connect-a-particle-device-to-blynk)
+
 [How to Control a Particle Device with Blynk](https://blynk.io/blog/how-to-control-particle-device-with-blynk)
 
 
