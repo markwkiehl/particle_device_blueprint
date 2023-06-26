@@ -38,13 +38,25 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
     <td>String</td>
     <td>Last date/time data was published</td>
   </tr>
+  <tr>
+    <td>V14</td>
+    <td>millis()</td>
+    <td>double</td>
+    <td>Number of seconds since the device started</td>
+  </tr>
+  <tr>
+    <td>V15</td>
+    <td>3.14159</td>
+    <td>double</td>
+    <td>Simulated sensor data</td>
+  </tr>
+  <tr>
+    <td>V16</td>
+    <td>0/1</td>
+    <td>integer</td>
+    <td>Simulated LED on device</td>
+  </tr>
 </table>
-
-|   V6   |   last_publish   |	  String   |	  Last date / time data was published   |
-|   V14   | millis()   | long   |   Number of seconds since the device started   |
-|   V15   | 3.14159   | double   |     Simulated sensor value   |
-|   V16   | 0/1   | integer |   Simulated LED on device   |
-
 
 # Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
