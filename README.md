@@ -24,7 +24,7 @@ Widgets on the Blynk web dashboard and mobile app trigger a Blynk webhook. &nbsp
 
 The Blynk webhook called by the Blynk web or mobile app widget makes a call to the Particle API for a Particle cloud function with a device unique token. &nbsp; The Particle cloud function running on the Particle hardware performs and action in response to the call, and responds to the API call with a result code.   
 
-The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to configure the Particle integration webhook, and the Blynk webhook.  
+The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to activate a new Blynk device, configure the Particle integration webhook, and how to create a Blynk webhook. &nbsp;
 
 <table>
   <tr>
