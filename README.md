@@ -66,4 +66,7 @@ Using this Blynk blueprint quickly configures a Particle device for bi-direction
 The sketch sends an integer and floating point value every 5 minutes to Blynk. &nbsp; The source of the integer and floating point value can be adapted to a particular application by the developer. &nbsp; The interval default of 5 minutes can be reduced down to every 1 second. &nbsp; It will be apparent to the developer from the content of the blueprint how to add additional data items to be pushed to Blynk.  &nbsp;
 
 # Related Links
+[Connect Particle Device to Blynk](https://blynk.io/blog/how-to-connect-a-particle-device-to-blynk)
+[How to Control a Particle Device with Blynk](https://blynk.io/blog/how-to-control-particle-device-with-blynk)
+
 
