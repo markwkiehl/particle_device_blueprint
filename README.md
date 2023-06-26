@@ -26,6 +26,31 @@ The Blynk webhook called by the Blynk web or mobile app widget makes a call to t
 
 The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to activate a new Blynk device, configure the Particle integration webhook, and how to create a Blynk webhook. &nbsp;
 
+# Components Used in This Project
+- [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
+- Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android?_gl=1*hxem43*_ga*NTQ1NjUzMTkwLjE2NjY1NTA3MTk.*_ga_E376ZQ635Y*MTY4NzE3MTI1Mi44OC4xLjE2ODcxNzEyNTQuMC4wLjA.) for web and mobile dashboards
+- Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware.
+- Any of the following Particle IoT devices:
+  - **Tracker One** is complete system including an enclosure. It also comes as a SoM (system on module) known as **Tracker SoM**.  See [Tracker button and LEDs](https://docs.particle.io/hardware/tracker/projects/tracker-buttons-leds/) for details on how to add an LED to the Tracker One. 
+  - Any **Boron** cellular devices, including those that are depreciated. &nbsp; All have a built-in LED is on D7.
+  - **B Series SoM** system-on-a-module. &nbsp; No built-in LED, must custom install.  
+  - **Photon 2** is a WiFi device with built in LED is on D7.
+  - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  Replaces the depreciated P1. 
+  - **Argon** is a depreciated WiFi device with built in LED is on D7.
+  - **Photon** is a depreciated WiFi device with built-in LED on D7.
+  - **Electron** is a depreciated cellular device with built-in LED on D7.
+  - **E Series** is a cellular device.  No built-in LED.
+  - **Core** is a WiFi device with built-in LED on D7. 
+ 
+# 1. Prepare Your Hardware
+All Particle devices will require suitable power connection and either a cellular or WiFi connection. &nbsp; If your device has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) then nothing more is required. &nbsp; Devices without a built-in LED will be detected by the firmware and a virtual LED (Blynk widget) will be used instead. &nbsp;
+
+# 2. Get the Firmware and a Blynk AuthToken
+If you don't have a Blynk account, then create one. &nbsp; From the Blynk.Console, navigate to 'Templates' -> 'All Blueprints' -> 'Particle Device Blueprint'. &nbsp;
+After selecting the blueprint, choose the option 'Activate New Device' to generate a Blynk AuthToken. &nbsp; Keep that AuthToken in a safe place because you will need it later for TBD. &nbsp;  Generating the AuthToken will also make available the firmware for your Particle hardware. &nbsp; Upload that firmware to your Particle hardware. &nbsp;
+
+Note that the Blynk blueprint has created a device template with the following datastreams configured:
+
 <table>
   <tr>
     <th>Datastream/Virtual Pin</th>
@@ -58,29 +83,6 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
     <td>Simulated LED on device</td>
   </tr>
 </table>
-
-# Components Used in This Project
-- [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
-- Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android?_gl=1*hxem43*_ga*NTQ1NjUzMTkwLjE2NjY1NTA3MTk.*_ga_E376ZQ635Y*MTY4NzE3MTI1Mi44OC4xLjE2ODcxNzEyNTQuMC4wLjA.) for web and mobile dashboards
-- Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware.
-- Any of the following Particle IoT devices:
-  - **Tracker One** is complete system including an enclosure. It also comes as a SoM (system on module) known as **Tracker SoM**.  See [Tracker button and LEDs](https://docs.particle.io/hardware/tracker/projects/tracker-buttons-leds/) for details on how to add an LED to the Tracker One. 
-  - Any **Boron** cellular devices, including those that are depreciated. &nbsp; All have a built-in LED is on D7.
-  - **B Series SoM** system-on-a-module. &nbsp; No built-in LED, must custom install.  
-  - **Photon 2** is a WiFi device with built in LED is on D7.
-  - **P2** is an SMD module with WiFi and a microcontroller.  No built-in LED.  Replaces the depreciated P1. 
-  - **Argon** is a depreciated WiFi device with built in LED is on D7.
-  - **Photon** is a depreciated WiFi device with built-in LED on D7.
-  - **Electron** is a depreciated cellular device with built-in LED on D7.
-  - **E Series** is a cellular device.  No built-in LED.
-  - **Core** is a WiFi device with built-in LED on D7. 
- 
-# 1. Prepare Your Hardware
-All Particle devices will require suitable power connection and either a cellular or WiFi connection. &nbsp; If your device has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) then nothing more is required. &nbsp; Devices without a built-in LED will be detected by the firmware and a virtual LED (Blynk widget) will be used instead. &nbsp;
-
-# 2. Get the Firmware and a Blynk AuthToken
-If you don't have a Blynk account, then create one. &nbsp; From the Blynk.Console, navigate to 'Templates' -> 'All Blueprints' -> 'Particle Device Blueprint'. &nbsp;
-After selecting the blueprint, choose the option 'Activate New Device' to generate a Blynk AuthToken. &nbsp; Keep that AuthToken in a safe place because you will need it later for TBD. &nbsp;  Generating the AuthToken will also make available the firmware for your Particle hardware. &nbsp; Upload that firmware to your Particle hardware. &nbsp;
 
 # 3. Create Integration (Webhook) on the Particle Cloud
 We are going to create a Particle integration webhook running on the Particle cloud that will accept the data from the Particle.publish() function executing on the device, and transform it into a HTTPs GET that will post data to the Blynk cloud, updating the corresponding Blynk datastream values. &nbsp;
