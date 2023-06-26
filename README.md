@@ -93,7 +93,7 @@ Login to your [Particle Console](https://docs.particle.io/getting-started/consol
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/626bbdfa3d42f9a1716117e9dbb36f4d7ad7d650/particle_device_blueprint%20(2).jpeg "New Integration")
 
-Fill out the Webhook form as shown below. &nbsp; The ‘Event Name’ is what will be called later by your device firmware with the Particle.publish() function. &nbsp; The server address of ‘ny3.blynk.cloud’ for the ‘URL’ field should be replaced with the server address from [this list](https://docs.blynk.io/en/blynk.cloud/troubleshooting) that matches what you defined for your Blynk HTTP GET request. &nbsp; Change the ‘Request Type’ to ‘GET’, and then click on the ‘CREATE WEBHOOK’ button at the bottom of the form. 
+Fill out the Webhook form as shown below. &nbsp; The ‘Event Name’ is what will be called later by your device firmware with the Particle.publish() function, so it is critical that it matches what is called in the firmware. &nbsp; The server address of ‘ny3.blynk.cloud’ for the ‘URL’ field should be replaced with the server address from [this list](https://docs.blynk.io/en/blynk.cloud/troubleshooting) that matches what you defined for your Blynk HTTP GET request. &nbsp; Change the ‘Request Type’ to ‘GET’, and then click on the ‘CREATE WEBHOOK’ button at the bottom of the form. 
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/c1409a9c9ea508fe0db27a512207736e520356f9/particle_device_blueprint%20(5).png "New Integration")
 
@@ -101,7 +101,21 @@ The webhook is not complete yet. &nbsp; The query parameters need to be defined.
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/e68aadfd6b90c7b41d69fd671cbedc7702aaac41/particle_device_blueprint%20(6).jpeg "New Integration")
 
-Click on the ‘Advanced Settings’ link at the bottom of the page and then under the ‘QUERY PARAMETERS’ section, choose the ‘Custom’ option. &nbsp; Build the query parameters as shown below, using the ‘+ ADD ROW’ button at the bottom to add a row for each query parameter. 
+Click on the ‘Advanced Settings’ link at the bottom of the page and then under the ‘QUERY PARAMETERS’ section, choose the ‘Custom’ option. &nbsp; Build the query parameters as shown below, using the ‘+ ADD ROW’ button at the bottom to add a row for each query parameter. &nbsp;
+
+![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/793c4a262e7c851ebd94a324c49ecb0291337265/particle_device_blueprint%20(7).png "New Integration")
+
+The keys on the left (token, V6, V14, V15) refer to Blynk virtual pins (datastreams), and the values on the right for ‘{{t}} {{PARTICLE_PUBLISHED_AT}} {{v14}} {{v15}}’ reference variables from the firmware that will be passed from the Particle.publish() function. &nbsp; Those values passed by the Particle.publish() function will replace the placeholders in the '{{}}' Mustache. &nbsp; The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a UTC timestamp for when the webhook is executed. &nbsp;
+
+At the bottom of the form, make sure the ‘ENFORCE SSL’ option is set to ‘Yes’, and then click the ‘SAVE’ button to save your changes. 
+
+![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/329686e5ebe01144375108bea2e7a770c57c4100/particle_device_blueprint%20(8).jpeg "New Integration")
+
+After you save your webhook, a summary of the configuration will be shown. &nbsp; Make sure it matches exactly what is shown below (except for the server address).
+
+![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/07bec41e879b7e8f0f34ddfbf9ce22a57d8a0779/particle_device_blueprint%20(9).png "New Integration")
+
+Note that we will be passing the unique BLYNK_AUTH_TOKEN defined in the firmware for each device to the Particle webhook as the variable ‘{{t}}’. &nbsp; This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes. &nbsp; You can learn more about Particle webhooks by visiting this [documentation link](https://docs.particle.io/reference/cloud-apis/webhooks/). 
 
 # 4. Create a Webhook in the Blynk.Console
 
