@@ -29,6 +29,7 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
 <table>
   <tr>
     <th>Datastream/Virtual Pin</th>
+    <th>&nbsp;</th>
     <th>Data Type</th>
     <th>Comment</th>
   </tr>
