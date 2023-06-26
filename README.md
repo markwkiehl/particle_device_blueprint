@@ -42,7 +42,7 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
   <tr>
     <td>V14</td>
     <td>millis()</td>
-    <td>double</td>
+    <td>integer</td>
     <td>Number of seconds since the device started</td>
   </tr>
   <tr>
