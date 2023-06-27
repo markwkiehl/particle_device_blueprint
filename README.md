@@ -51,41 +51,6 @@ After selecting the blueprint, choose the option 'Activate New Device' to genera
 
 Upload the firmware code to your Particle hardware (device). &nbsp; The Particle device should be breathing cyan if it has the built-in RGB and is connected to the Particle cloud. &nbsp; 
 
-Note that the Blynk blueprint has created a device template with the following datastreams configured:
-
-<table>
-  <tr>
-    <th>Datastream/Virtual Pin</th>
-    <th>&nbsp;</th>
-    <th>Data Type</th>
-    <th>Comment</th>
-  </tr>
-  <tr>
-    <td>V6</td>
-    <td>last_publish</td>
-    <td>String</td>
-    <td>Last date/time data was published</td>
-  </tr>
-  <tr>
-    <td>V14</td>
-    <td>millis()</td>
-    <td>integer</td>
-    <td>Simulated sensor data</td>
-  </tr>
-  <tr>
-    <td>V15</td>
-    <td>3.14159</td>
-    <td>double</td>
-    <td>Simulated sensor data</td>
-  </tr>
-  <tr>
-    <td>V16</td>
-    <td>0/1</td>
-    <td>integer</td>
-    <td>Simulated LED on device</td>
-  </tr>
-</table>
-
 # 3. Create Integration (Webhook) on the Particle Cloud
 We are going to create a Particle integration webhook running on the Particle cloud that will accept the data from the Particle.publish() function executing on the device, and transform it into a HTTPs GET that will post data to the Blynk cloud, updating the corresponding Blynk datastream values. &nbsp;
 
@@ -152,10 +117,6 @@ Note that the Blynk request quota is ‘1 per minute’ so any datastream value 
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/4551a69255324fa9f0c551440f7514cb6764b464/particle_device_blueprint%20(11).png "Blynk Webhook")
 
-# 6. Prepare Required Software
-
-# 7. Dashboard Breakdown
-
 # 8. Testing
 
 Test the Particle cloud function running in the firmware by calling it from the Particle console.  With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. &nbsp; 
@@ -163,6 +124,43 @@ Test the Particle cloud function running in the firmware by calling it from the 
 Verify that your Particle access token is correct by using the Particle API to test it. &nbsp; Detailed instructions on how to do this using [Postman](https://www.postman.com/) can be found [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#particle-api). &nbsp;
 
 Test the Blynk webhook by installing the firmware on your Particle hardware, and then click the ‘Test webhook’ to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). &nbsp;  Then from the Blynk web dashboard or mobile app, toggle the switch assigned to datastream V16 and observe the built-in LED on the hardware if it exists, or the Blynk LED widget if no built-in LED exists. &nbsp;  Wait 60 seconds between each toggle of the switch widget. &nbsp;
+
+# Reference Information
+
+The Blynk blueprint has created a device template with the following datastreams configured:
+<table>
+  <tr>
+    <th>Datastream/Virtual Pin</th>
+    <th>&nbsp;</th>
+    <th>Data Type</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td>V6</td>
+    <td>last_publish</td>
+    <td>String</td>
+    <td>Last date/time data was published</td>
+  </tr>
+  <tr>
+    <td>V14</td>
+    <td>millis()</td>
+    <td>integer</td>
+    <td>Simulated sensor data</td>
+  </tr>
+  <tr>
+    <td>V15</td>
+    <td>3.14159</td>
+    <td>double</td>
+    <td>Simulated sensor data</td>
+  </tr>
+  <tr>
+    <td>V16</td>
+    <td>0/1</td>
+    <td>integer</td>
+    <td>Simulated LED on device</td>
+  </tr>
+</table>
+
 
 
 # Troubleshooting
