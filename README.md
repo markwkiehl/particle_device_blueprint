@@ -47,7 +47,9 @@ All Particle devices will require suitable power connection and either a cellula
 
 # 2. Get the Firmware and a Blynk AuthToken
 If you don't have a Blynk account, then create one. &nbsp; From the Blynk.Console, navigate to 'Templates' -> 'All Blueprints' -> 'Particle Device Blueprint'. &nbsp;
-After selecting the blueprint, choose the option 'Activate New Device' to generate a Blynk AuthToken. &nbsp; Keep that AuthToken in a safe place because you will need it later for TBD. &nbsp;  Generating the AuthToken will also make available the firmware for your Particle hardware. &nbsp; Upload that firmware to your Particle hardware. &nbsp;
+After selecting the blueprint, choose the option 'Activate New Device' to generate a Blynk AuthToken and to get the firmware code. &nbsp; Keep that AuthToken in a safe place because you will need it later for TBD. &nbsp;  Generating the AuthToken will also make available the firmware for your Particle hardware. &nbsp; Upload that firmware to your Particle hardware. &nbsp;
+
+Upload the firmware code to your Particle hardware (device). &nbsp; The Particle device should be breathing cyan if it has the built-in RGB and is connected to the Particle cloud. &nbsp; 
 
 Note that the Blynk blueprint has created a device template with the following datastreams configured:
 
@@ -164,7 +166,7 @@ Test the Blynk webhook by installing the firmware on your Particle hardware, and
 
 
 # Troubleshooting
-If your Particle device has a built-in RGB then it should be breathing cyan if it is connected to the Particle cloud.  
+If your Particle device has a built-in RGB then it should be breathing cyan if it is connected to the Particle cloud.  &nbsp; Make sure the firmware code provided by activating the Blynk device was uploaded. &nbsp;
 
 
 # Conclusion
