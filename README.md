@@ -125,13 +125,20 @@ Create an access token by logging into your Particle account, and then visiting 
 
 # 5. Create a Webhook in the Blynk.Console
 
-When the state of the switch widget on the Blynk web dashboard and mobile app is changed, a Blynk webhook is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
+When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
+
+
 
 # 6. Prepare Required Software
 
 # 7. Dashboard Breakdown
 
 # 8. Testing
+
+Test the Particle cloud function running in the firmware by calling it from the Particle console.  With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. &nbsp; 
+
+Verify that your Particle access token is correct by using the Particle API to test it. &nbsp; Detailed instructions on how to do this using [Postman](https://www.postman.com/) can be found [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#particle-api). &nbsp;
+
 
 # Troubleshooting
 
