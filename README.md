@@ -66,7 +66,7 @@ Note that the Blynk blueprint has created a device template with the following d
     <td>V14</td>
     <td>millis()</td>
     <td>integer</td>
-    <td>Number of seconds since the device started</td>
+    <td>Simulated sensor data (number of seconds since the device started)</td>
   </tr>
   <tr>
     <td>V15</td>
