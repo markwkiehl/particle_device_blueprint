@@ -39,7 +39,9 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
   - **Electron** is a depreciated cellular device with built-in LED on D7.
   - **E Series** is a cellular device.  No built-in LED.
   - **Core** is a WiFi device with built-in LED on D7. 
- 
+
+<!-- Tracker One, Tracker SOM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, Core -->
+
 # 1. Prepare Your Hardware
 All Particle devices will require suitable power connection and either a cellular or WiFi connection. &nbsp; If your device has a built-in LED connected to GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) then nothing more is required. &nbsp; Devices without a built-in LED will be detected by the firmware and a virtual LED (Blynk widget) will be used instead. &nbsp;
 
@@ -121,13 +123,15 @@ The Blynk webhook will need a Particle access token in order to make a Particle 
 
 Create an access token by logging into your Particle account, and then visiting the Particle documentation section ‘[Create a token (browser-based)](https://docs.particle.io/reference/cloud-apis/access-tokens/#create-a-token-browser-based-)’. Use your Particle login email and password. If you have MFA (multi-factor authentication) enabled on your account, you will need your MFA code to generate the access token. Click the ‘Create token’ button to generate a token. Keep this token confidential. 
 
-![alt text](https://github.com/markwkiehl/particle_device_blueprint/blob/fa812deaaa3100b08566136fa750a2a3e0389f4e/particle_device_blueprint%20(10).jpeg "Particle Access Token")
+![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/fa812deaaa3100b08566136fa750a2a3e0389f4e/particle_device_blueprint%20(10).jpeg "Particle Access Token")
 
 # 5. Create a Webhook in the Blynk.Console
 
 When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
 
+In the Blynk.Console, navigate to ‘Settings -> Webhooks’ and create one new webhooks for datastream V16 based on the information shown in the image below. &nbsp; Substitute your Particle [device ID](https://console.particle.io/) and the 40 character access token you generated earlier in the corresponding form fields. &nbsp;  Your 24 character Particle device ID is available in the [Particle console[(https://console.particle.io/). &nbsp; 
 
+![alt text](https://github.com/markwkiehl/particle_device_blueprint/blob/fe932a4c9f24dbaebc8e7d5ca871aa0ad87025fc/particle_device_blueprint%20(11).png "
 
 # 6. Prepare Required Software
 
