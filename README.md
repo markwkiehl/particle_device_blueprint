@@ -178,7 +178,7 @@ The Blynk blueprint has created a device template with the following datastreams
   </tr>
 </table>
 
-Firmware sketch '[particle_device_blueprint.ino](https://github.com/markwkiehl/particle_device_blueprint/raw/4d403089430739b83e5ffa1e37ef1d5e48a90b62/particle_device_blueprint.ino)' for the Particle device:
+Firmware sketch '[particle_device_blueprint.ino](https://github.com/markwkiehl/particle_device_blueprint/blob/487338647eec7ea72928cc17526fe16eb23f1f8b/particle_device_blueprint.ino)' for the Particle device:
 
 
 <pre><code>
