@@ -11,7 +11,7 @@ This blueprint will configure bi-directional communication between any [Particle
 - The historical values for the integer and floating point value must be displayed in a line chart.  
 - Multiple Particle devices must be able to use the same Particle webhook. 
 - A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED).
-- Communication frequency must be configured to minimize data usage for the case when a cellular device is employed.  
+- Communication frequency must be configured to minimize data usage by default for the case when a cellular device is employed.  
 
 # How It Works
 All communication between the Particle hardware and Blynk will utilize the Blynk HTTP API rather than the [Blynk library](http://library.to/). &nbsp; This minimizes data usage when a Particle cellular device is employed.  
