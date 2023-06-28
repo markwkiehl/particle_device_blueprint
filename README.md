@@ -161,7 +161,14 @@ The Blynk blueprint has created a device template with the following datastreams
     <td>V16</td>
     <td>0/1</td>
     <td>integer</td>
-    <td>Simulated LED on device</td>
+    <td>Controlled by switch widget on Blynk web dashboard and mobile app. &nbsp; Changes in the datastream value will be received by the hardware and then the state of the built-in LED will be changed (if available), and the state of the LED widget on the Blynk web dashboard and mobile app will be updated.</td>
+  </tr>
+  <tr>
+    <td>V17</td>
+    <td>0/1</td>
+    <td>integer</td>
+    <td>LED widget on Blynk web dashboard and mobile app that echos changes received by the hardware for V16. 
+	</td>
   </tr>
 </table>
 
