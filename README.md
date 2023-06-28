@@ -123,7 +123,8 @@ Note that the Blynk request quota is ‘1 per minute’ so any datastream value 
 
 # 8. Testing
 
-Test the Particle cloud function running in the firmware by calling it from the Particle console.  With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. &nbsp; 
+Test the Particle cloud function running in the firmware by calling it from the Particle console.  With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. &nbsp; Go to your [Particle console](https://console.particle.io/), select the Particle device, and then under the section ‘FUNCTIONS’ on the right side of the screen you will see the function key of ‘blynk_led’ listed. &nbsp; Enter ‘on’ in the ‘Argument’ input area and click the ‘CALL’ button. &nbsp; Observe the Particle device to confirm that the built-in blue LED on D7 turns on. &nbsp; Repeat, this time with the ‘off’ argument to turn off the LED.
+![alt text](https://github.com/markwkiehl/particle_device_blueprint/blob/b1bf502a9f0161de09dced117001832adae37930/particle_device_blueprint%20(12).jpg "Particle Function")
 
 Verify that your Particle access token is correct by using the Particle API to test it. &nbsp; Detailed instructions on how to do this using [Postman](https://www.postman.com/) can be found [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#particle-api). &nbsp;
 
@@ -134,39 +135,39 @@ Test the Blynk webhook by installing the firmware on your Particle hardware, and
 The Blynk blueprint has created a device template with the following datastreams configured:
 <table>
   <tr>
-    <th>Datastream/Virtual Pin</th>
-    <th>&nbsp;</th>
+    <th>Datastream <br/> Virtual Pin</th>
     <th>Data Type</th>
+    <th>&nbsp;</th>
     <th>Comment</th>
   </tr>
   <tr>
     <td>V6</td>
-    <td>last_publish</td>
     <td>String</td>
-    <td>Last date/time data was published</td>
+    <td>last_publish</td>
+    <td>Last UTC date/time data was published from the Particle hardware</td>
   </tr>
   <tr>
     <td>V14</td>
-    <td>millis()</td>
     <td>integer</td>
+    <td>millis()</td>
     <td>Simulated sensor data</td>
   </tr>
   <tr>
     <td>V15</td>
-    <td>3.14159</td>
     <td>double</td>
+    <td>3.14159</td>
     <td>Simulated sensor data</td>
   </tr>
   <tr>
     <td>V16</td>
-    <td>0/1</td>
     <td>integer</td>
+    <td>0/1</td>
     <td>Controlled by switch widget on Blynk web dashboard and mobile app. &nbsp; Changes in the datastream value will be received by the hardware and then the state of the built-in LED will be changed (if available), and the state of the LED widget on the Blynk web dashboard and mobile app will be updated.</td>
   </tr>
   <tr>
     <td>V17</td>
-    <td>0/1</td>
     <td>integer</td>
+    <td>0/1</td>
     <td>LED widget on Blynk web dashboard and mobile app that echos changes received by the hardware for V16. 
 	</td>
   </tr>
