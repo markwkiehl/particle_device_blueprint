@@ -100,7 +100,8 @@ In the [Blynk.Console](https://blynk.cloud/), navigate to ‘Settings -> Webhook
 
 The 'DEVICE' field in the form is the Blynk device, selectable from a drop down list. &nbsp;
 
-For the 'WEBHOOK URL' field in the form, the format is <pre><code>"https://api.particle.io/v1/devices/[your 24 character Particle device ID/blynk_led]"</code></pre>.  
+For the 'WEBHOOK URL' field in the form, the format is:
+<pre><code>https://api.particle.io/v1/devices/[your 24 character Particle device ID/blynk_led]</code></pre>
 
 The "blynk_led" at the end of the URL is the Particle cloud function key that is referenced in the firmware as:
 
