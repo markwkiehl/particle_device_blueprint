@@ -204,8 +204,7 @@ int blynkLED(String on_or_off);
 // Blynk
 
 // Update below with your Blynk auth token for your device 
-//#define BLYNK_AUTH_TOKEN &quot;your Blynk 32 char auth token&quot;
-#define BLYNK_AUTH_TOKEN &quot;or1nEj7xNw2z8Zczhx165P6Cx9i1kwaR&quot;
+#define BLYNK_AUTH_TOKEN &quot;your Blynk 32 char auth token&quot;
 
 /////////////////////////////////////////////////////////////////////////
 
