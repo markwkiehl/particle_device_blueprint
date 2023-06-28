@@ -182,7 +182,7 @@ Firmware sketch '[particle_device_blueprint.ino](https://github.com/markwkiehl/p
 
 
 <pre><code>
-(https://github.com/markwkiehl/particle_device_blueprint/raw/4d403089430739b83e5ffa1e37ef1d5e48a90b62/particle_device_blueprint.ino)
+[particle_device_blueprint.ino](https://github.com/markwkiehl/particle_device_blueprint/raw/4d403089430739b83e5ffa1e37ef1d5e48a90b62/particle_device_blueprint.ino)
 </code></pre>
 
 # Troubleshooting
