@@ -131,6 +131,10 @@ Verify that your Particle access token is correct by using the Particle API to t
 
 Test the Blynk webhook by installing the firmware on your Particle hardware, and then click the ‘Test webhook’ to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). &nbsp;  Then from the Blynk web dashboard or mobile app, toggle the switch assigned to datastream V16 and observe the built-in LED on the hardware if it exists, or the Blynk LED widget if no built-in LED exists. &nbsp;  Wait 60 seconds between each toggle of the switch widget. &nbsp;
 
+Review the Particle device log to confirm the device is connected and to see what data has been published from the hardware to the Particle cloud. 
+
+Review the Particle integration log to see if it was triggered successfully and the data what was pushed to it from the Particle device. 
+
 # Reference Information
 
 The Blynk blueprint has created a device template with the following datastreams configured:
