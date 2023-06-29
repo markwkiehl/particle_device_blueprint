@@ -76,7 +76,7 @@ The keys on the left (token, V6, V14, V15, V16, V17) refer to Blynk virtual pins
 
 <pre><code>
 char data[90]; 
-// Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.  
+// Note the escaped double quotes around the &quot;&quot;t&quot;&quot; for BLYNK_AUTH_TOKEN.  
 snprintf(data, sizeof(data), &quot;{\&quot;t\&quot;:\&quot;%s\&quot;,\&quot;v14\&quot;:%u,\&quot;v15\&quot;:%f,\&quot;v16\&quot;:%u,\&quot;v17\&quot;:%u}&quot;, BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
 bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
 </code></pre>
@@ -241,7 +241,7 @@ uint32_t timer_last = 0;
 void pubToParticleBlynk() {
   if (Particle.connected()) {
     char data[90]; // See serial output for the actual size in bytes and adjust accordingly.
-    // Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.  
+    // Note the escaped double quotes around the &quot;&quot;t&quot;&quot; for BLYNK_AUTH_TOKEN.  
     snprintf(data, sizeof(data), &quot;{\&quot;t\&quot;:\&quot;%s\&quot;,\&quot;v14\&quot;:%u,\&quot;v15\&quot;:%f,\&quot;v16\&quot;:%u,\&quot;v17\&quot;:%u}&quot;, BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
     Serial.printlnf(&quot;Sending to Blynk: '%s' with size of %u bytes&quot;, data, strlen(data));
     bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
