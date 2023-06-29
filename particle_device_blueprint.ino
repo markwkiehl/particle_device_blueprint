@@ -50,8 +50,7 @@ uint32_t timer_last = 0;
 void pubToParticleBlynk() {
   if (Particle.connected()) {
     char data[90]; // See serial output for the actual size in bytes and adjust accordingly.
-    // Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.  
-    // led_state
+    // Note the escaped double quotes around the ""t"" for BLYNK_AUTH_TOKEN.  
     snprintf(data, sizeof(data), "{\"t\":\"%s\",\"v14\":%u,\"v15\":%f,\"v16\":%u,\"v17\":%u}", BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
     Serial.printlnf("Sending to Blynk: '%s' with size of %u bytes", data, strlen(data));
     bool pub_result = Particle.publish("blynk_https_get", data, PRIVATE);
