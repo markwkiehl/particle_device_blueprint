@@ -357,4 +357,5 @@ The data publishing interval default of 5 minutes set in the firmware can be red
 
 [How to Control a Particle Device with Blynk](https://blynk.io/blog/how-to-control-particle-device-with-blynk)
 
+[Blynk vs Particle](https://blynk.io/blog/blynk-vs-particle)
 
