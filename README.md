@@ -75,10 +75,10 @@ Click on the ‘Advanced Settings’ link at the bottom of the page and then und
 The keys on the left (token, V6, V14, V15, V16, V17) refer to Blynk virtual pins (datastreams), and the values on the right for ‘{{t}} {{PARTICLE_PUBLISHED_AT}} {{v14}} {{v15}} ..’ reference variables from the firmware that will be passed from the Particle.publish() function. &nbsp; Those values passed by the Particle.publish() function will replace the placeholders in the '{{}}' Mustache. &nbsp; 
 
 <pre><code>
-    char data[90]; 
-    // Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.  
-    snprintf(data, sizeof(data), &quot;{\&quot;t\&quot;:\&quot;%s\&quot;,\&quot;v14\&quot;:%u,\&quot;v15\&quot;:%f,\&quot;v16\&quot;:%u,\&quot;v17\&quot;:%u}&quot;, BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
-    bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
+char data[90]; 
+// Note the escaped double quotes around the value for BLYNK_AUTH_TOKEN.  
+snprintf(data, sizeof(data), &quot;{\&quot;t\&quot;:\&quot;%s\&quot;,\&quot;v14\&quot;:%u,\&quot;v15\&quot;:%f,\&quot;v16\&quot;:%u,\&quot;v17\&quot;:%u}&quot;, BLYNK_AUTH_TOKEN, millis(), v15, led_state, led_state);
+bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
 </code></pre>
 
 The value ‘PARTICLE_PUBLISHED_AT’ for virtual pin V6 is a Particle pre-defined variable that provides a UTC timestamp for when the webhook is executed. &nbsp; At the bottom of the form, make sure the ‘ENFORCE SSL’ option is set to ‘Yes’, and then click the ‘SAVE’ button to save your changes. 
