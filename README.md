@@ -52,7 +52,7 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
 3. Upload that firmware to your Particle hardware. &nbsp; This firmware should be used with only one device. &nbsp; You can add more devices by click the 'New Device' button on this page. &nbsp;
 4. The Particle device should be breathing cyan if it has the built-in RGB and is connected to the Particle cloud. &nbsp; 
 
-## 3. Create Integration (Webhook)
+## 3. Create Particle Integration (Webhook)
 We are going to create a Particle integration webhook running on the Particle cloud that will accept the data from the Particle.publish() function executing on the device, and transform it into a HTTPs GET that will post data to the Blynk cloud, updating the corresponding Blynk datastream values. &nbsp;
 
 1. Login to your [Particle Console](https://docs.particle.io/getting-started/console/console/) and click on the ‘[Integrations](https://console.particle.io/integrations)’ sidebar option. &nbsp; Click on the ‘NEW INTEGRATION’ shown on the page, and then select the ‘Webhook’ option. 
