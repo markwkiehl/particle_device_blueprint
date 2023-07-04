@@ -90,13 +90,16 @@ bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/565ce0266ea6be870f859dd653dd0d3bd595fbf2/particle_device_blueprint%20(9).png "New Integration")
 
-Note that blueprint is designed to pass the unique BLYNK_AUTH_TOKEN defined in the firmware for each device to the Particle webhook as the variable ‘{{t}}’. &nbsp; This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes. &nbsp; You can learn more about Particle webhooks by visiting this [documentation link](https://docs.particle.io/reference/cloud-apis/webhooks/). 
+Note that the blueprint is designed to pass the unique BLYNK_AUTH_TOKEN defined in the firmware for each device to the Particle webhook as the variable ‘{{t}}’. &nbsp; This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes. &nbsp; You can learn more about Particle webhooks by visiting this [documentation link](https://docs.particle.io/reference/cloud-apis/webhooks/). 
 
 # 4. Create a Particle Access Token
 
 The Blynk webhook will need a Particle access token in order to make a Particle HTTP API call to the Particle cloud function. &nbsp;
 
-Create an access token by logging into your Particle account, and then visiting the Particle documentation section ‘[Create a token (browser-based)](https://docs.particle.io/reference/cloud-apis/access-tokens/#create-a-token-browser-based-)’. Use your Particle login email and password. &nbsp; If you have MFA (multi-factor authentication) enabled on your account, you will need your MFA code to generate the access token. Click the ‘Create token’ button to generate a token. &nbsp; Keep this token confidential. 
+1. Login to your Particle account.
+2. Browse to the Particle documentation section ‘[Create a token (browser-based)](https://docs.particle.io/reference/cloud-apis/access-tokens/#create-a-token-browser-based-)’. 
+3. Enter your Particle login email and password into the form. &nbsp; If you have MFA (multi-factor authentication) enabled on your account, you will need your MFA code to generate the access token. 
+4. Click the ‘Create token’ button to generate a token. &nbsp; Keep this token confidential. 
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/fa812deaaa3100b08566136fa750a2a3e0389f4e/particle_device_blueprint%20(10).jpeg "Particle Access Token")
 
@@ -104,7 +107,7 @@ Create an access token by logging into your Particle account, and then visiting 
 
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. &nbsp; When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
 
-In the [Blynk.Console](https://blynk.cloud/), navigate to ‘Settings -> Webhooks’ and create one new webhooks for datastream V16 based on the information shown in the image below. &nbsp; Substitute your Particle [device ID](https://console.particle.io/) and the 40 character access token you generated earlier in the corresponding form fields. &nbsp;  Your 24 character Particle device ID is available in the [Particle console[(https://console.particle.io/). &nbsp; 
+In the [Blynk.Console](https://blynk.cloud/), navigate to ‘Settings -> Webhooks’ and create one new webhook for datastream V16 based on the information shown in the image below. &nbsp; Substitute your Particle [device ID](https://console.particle.io/) and the 40 character access token you generated earlier in the corresponding form fields. &nbsp;  Your 24 character Particle device ID is available in the [Particle console[(https://console.particle.io/). &nbsp; 
 
 The 'DEVICE' field in the form is the Blynk device, selectable from a drop down list. &nbsp;
 
