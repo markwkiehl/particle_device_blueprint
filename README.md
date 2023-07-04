@@ -6,7 +6,7 @@ This blueprint will configure bi-directional communication between any [Particle
 
 ### Functional Requirements
 - The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware).
-- A date/time stamp in UTC must be included with data sent to Blynk so the last time data was sent will be visible.
+- A date/time stamp in UTC must be included with data sent to Blynk and visible to the user.
 - The last integer value, floating point value, and UTC datetime stamp must be displayed on the web dashboard and mobile app.
 - The historical values for the integer and floating point value must be displayed in a line chart.  
 - Multiple Particle devices must be able to use the same Particle webhook. 
@@ -52,7 +52,7 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
 3. Upload that firmware to your Particle hardware. &nbsp; This firmware should be used with only one device. &nbsp; You can add more devices by click the 'New Device' button on this page. &nbsp;
 4. The Particle device should be breathing cyan if it has the built-in RGB and is connected to the Particle cloud. &nbsp; 
 
-## 3. Create Integration (Webhook) on the Particle Cloud
+## 3. Create Integration (Webhook)
 We are going to create a Particle integration webhook running on the Particle cloud that will accept the data from the Particle.publish() function executing on the device, and transform it into a HTTPs GET that will post data to the Blynk cloud, updating the corresponding Blynk datastream values. &nbsp;
 
 1. Login to your [Particle Console](https://docs.particle.io/getting-started/console/console/) and click on the ‘[Integrations](https://console.particle.io/integrations)’ sidebar option. &nbsp; Click on the ‘NEW INTEGRATION’ shown on the page, and then select the ‘Webhook’ option. 
@@ -103,7 +103,7 @@ The Blynk webhook will need a Particle access token in order to make a Particle 
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/fa812deaaa3100b08566136fa750a2a3e0389f4e/particle_device_blueprint%20(10).jpeg "Particle Access Token")
 
-## 5. Create a Webhook in the Blynk.Console
+## 5. Create the Blynk Webhook
 
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. &nbsp; When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
 
