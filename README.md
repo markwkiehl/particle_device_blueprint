@@ -1,10 +1,10 @@
 # particle_device_blueprint
 Connect any Particle IoT device to Blynk
 
-# Introduction
+## Introduction
 This blueprint will configure bi-directional communication between any [Particle](https://www.particle.io/) device and [Blynk IoT](https://blynk.io/). &nbsp; Both a Blynk web dashboard and mobile app will be generated that will display data from the Particle device, and they will be used to control the Particle device remotely.  
 
-## Functional Requirements
+### Functional Requirements
 - The firmware on the Particle hardware will push data that includes an integer value and a floating point number (simulated sensor value or other source) at a regular interval of every 5 minutes (adjustable in the firmware).
 - A date/time stamp in UTC must be included with data sent to Blynk so the last time data was sent will be visible.
 - The last integer value, floating point value, and UTC datetime stamp must be displayed on the web dashboard and mobile app.
@@ -13,7 +13,7 @@ This blueprint will configure bi-directional communication between any [Particle
 - A button widget on the Blynk web dashboard and mobile app will be configured to send a state change command (1/0 value) back to the Particle hardware that will turn ON/OFF the built-in LED (if no LED on GPIO D7 then the user must configure custom GPIO and connect LED).
 - Communication frequency must be configured to minimize data usage by default for the case when a cellular device is employed.  
 
-# How It Works
+## How It Works
 All communication between the Particle hardware and Blynk will utilize the Blynk HTTP API rather than the [Blynk library](http://library.to/). &nbsp; This minimizes data usage when a Particle cellular device is employed.  
 
 The BLYNK AUTH TOKEN will be sent by the device with each data packet and the Particle webhook will pass this on when it communicates with Blynk via the Blynk HTTP API.  This allows the same Particle integration webhook to be used with multiple Particle devices.  
@@ -24,7 +24,7 @@ The Particle hardware will also be controlled remotely from the Blynk web dashbo
 
 The blueprint includes a sketch (.ino file) that is uploaded to the Particle hardware. &nbsp; The Blynk device template, datastreams, web dashboard ,and mobile app (iOS/Android) are all pre-configured. &nbsp; Instructions are included later in this readme.md on how to configure the Particle integration webhook, generate a Particle access token, and how to create a Blynk webhook. &nbsp;
 
-# Components Used in This Project
+## Components Used in This Project
 - [Particle Console](https://console.particle.io/) to activate the hardware and set up the integration/webhook. 
 - Blynk Console and [Blynk App](https://docs.blynk.io/en/downloads/blynk-apps-for-ios-and-android?_gl=1*hxem43*_ga*NTQ1NjUzMTkwLjE2NjY1NTA3MTk.*_ga_E376ZQ635Y*MTY4NzE3MTI1Mi44OC4xLjE2ODcxNzEyNTQuMC4wLjA.) for web and mobile dashboards
 - Particle Web IDE, Particle Workbench or Particle Comand Line to upload firmware.
@@ -42,17 +42,17 @@ The blueprint includes a sketch (.ino file) that is uploaded to the Particle har
 
 <!-- Tracker One, Tracker SOM, Boron, B Series SoM, Photon 2, P2, Argon, Photon, Electron, E Series, Core -->
 
-# 1. Prepare Your Hardware
+## 1. Prepare Your Hardware
 1. All Particle devices will require suitable power connection and either a cellular or WiFi connection. &nbsp; 
 2. A virtual LED (Blynk widget) will be used for all hardware to push back data to Blynk and cause the LED widget to turn on or off.  Particle devices with a built-in LED connected to GPIO D7 GPIO D7 (Boron, Argon, Photon 2, Photon, Electron, Core) will be detected by the firmware and this physical LED will be turned ON/OFF in addition to the LED widget. 
 
-# 2. Get the Firmware and a Blynk AuthToken
+## 2. Get the Firmware and a Blynk AuthToken
 1. If you don't have a Blynk account, then create one. &nbsp; From the Blynk.Console, navigate to 'Templates' -> 'All Blueprints' -> 'Particle Device Blueprint'. &nbsp;
 2. After selecting the blueprint, choose the option 'Activate New Device' to generate a Blynk AuthToken and to get the firmware code. &nbsp; The AuthToken generated will be automatically inserted into the firmware. 
 3. Upload that firmware to your Particle hardware. &nbsp; This firmware should be used with only one device. &nbsp; You can add more devices by click the 'New Device' button on this page. &nbsp;
 4. The Particle device should be breathing cyan if it has the built-in RGB and is connected to the Particle cloud. &nbsp; 
 
-# 3. Create Integration (Webhook) on the Particle Cloud
+## 3. Create Integration (Webhook) on the Particle Cloud
 We are going to create a Particle integration webhook running on the Particle cloud that will accept the data from the Particle.publish() function executing on the device, and transform it into a HTTPs GET that will post data to the Blynk cloud, updating the corresponding Blynk datastream values. &nbsp;
 
 1. Login to your [Particle Console](https://docs.particle.io/getting-started/console/console/) and click on the ‘[Integrations](https://console.particle.io/integrations)’ sidebar option. &nbsp; Click on the ‘NEW INTEGRATION’ shown on the page, and then select the ‘Webhook’ option. 
@@ -92,7 +92,7 @@ bool pub_result = Particle.publish(&quot;blynk_https_get&quot;, data, PRIVATE);
 
 Note that the blueprint is designed to pass the unique BLYNK_AUTH_TOKEN defined in the firmware for each device to the Particle webhook as the variable ‘{{t}}’. &nbsp; This allows each device to call the same webhook, at the expense of increasing the cellular payload for each transmission by 32 bytes. &nbsp; You can learn more about Particle webhooks by visiting this [documentation link](https://docs.particle.io/reference/cloud-apis/webhooks/). 
 
-# 4. Create a Particle Access Token
+## 4. Create a Particle Access Token
 
 The Blynk webhook will need a Particle access token in order to make a Particle HTTP API call to the Particle cloud function. &nbsp;
 
@@ -103,7 +103,7 @@ The Blynk webhook will need a Particle access token in order to make a Particle 
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/fa812deaaa3100b08566136fa750a2a3e0389f4e/particle_device_blueprint%20(10).jpeg "Particle Access Token")
 
-# 5. Create a Webhook in the Blynk.Console
+## 5. Create a Webhook in the Blynk.Console
 
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. &nbsp; When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
 
@@ -132,7 +132,7 @@ Note that the **Blynk request quota is 1 per minute*** so any datastream value c
 
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/4551a69255324fa9f0c551440f7514cb6764b464/particle_device_blueprint%20(11).png "Blynk Webhook")
 
-# 8. Testing
+## 8. Testing
 
 1. Test the Particle cloud function running in the firmware by calling it from the Particle console. &nbsp;  With your Particle hardware running, visit [here](https://docs.blynk.io/en/hardware-guides/particle-part-ii#firmware) for detailed instructions on how to call 'blynk_led'. &nbsp; Go to your [Particle console](https://console.particle.io/), select the Particle device, and then under the section ‘FUNCTIONS’ on the right side of the screen you will see the function key of ‘blynk_led’ listed. &nbsp; Enter ‘on’ in the ‘Argument’ input area and click the ‘CALL’ button. &nbsp; Observe the Particle device to confirm that the built-in blue LED on D7 turns on. &nbsp; Repeat, this time with the ‘off’ argument to turn off the LED. &nbsp;
 
@@ -146,7 +146,7 @@ Note that the **Blynk request quota is 1 per minute*** so any datastream value c
 
 5. Review the Particle integration log to see if it was triggered successfully and the data what was pushed to it from the Particle device. 
 
-# Reference Information
+## Reference Information
 
 The Blynk blueprint has created a device template with the following datastreams configured:
 <table>
@@ -340,24 +340,24 @@ int blynkLED(String on_off) {
 } // blynkLED()
 </code></pre>
 
-# Troubleshooting
+## Troubleshooting
 If your Particle device has a built-in RGB then it should be breathing cyan if it is connected to the Particle cloud.  &nbsp; Make sure the firmware code provided by activating the Blynk device was uploaded to the hardware. &nbsp;
 
 Perform all of the tests under **Testing** to be sure that each communication step from the Particle hardware to Blynk and back works properly. &nbsp;
 
 Make sure the BLYNK_AUTH_TOKEN in the sketch 'particle_device_blueprint.ino' matches what is shown in the Blynk console 'Search' -> 'Device' -> 'Device Info'. &nbsp;
 
-# Conclusion
+## Conclusion
 Using this Blynk blueprint accelerates the configuration of a Particle device for bi-directional communication with Blynk. &nbsp; The Blynk blueprint generates the firmware to be installed on the Particle hardware, creates a Blynk device template with datastreams defined, a web dashboard with widgets, and a mobile app with widgets. &nbsp; The developer needs to create a Blynk webhook, a Particle webhook, provision a Blynk device and upload the firmware to the hardware, and acquire a Particle access token. &nbsp;
 
-# Next Steps
+## Next Steps
 The resources generated by this blueprint are easily modified to include more functionality. &nbsp; Blynk provides a NO CODE web dashboard and mobile app for visualizing data from the Particle hardware, and remotely controlling the Particle device.  &nbsp;
 
 The firmwate sketch sends an integer and floating point value every 5 minutes to Blynk. &nbsp; The source of the integer and floating point value can be adapted to a particular application by the developer, such as a sensor value. &nbsp; Additional data can be sent from the hardware to Blynk by modifying the firmware, the Particle webhook, and adding datastreams to the Blynk template. &nbsp; 
 
 The data publishing interval default of 5 minutes set in the firmware can be reduced down to every one second. &nbsp; 
 
-# Related Links
+## Related Links
 [Connect Particle Device to Blynk](https://blynk.io/blog/how-to-connect-a-particle-device-to-blynk)
 
 [How to Control a Particle Device with Blynk](https://blynk.io/blog/how-to-control-particle-device-with-blynk)
