@@ -19,7 +19,9 @@ int blynkLED(String on_or_off);
 /////////////////////////////////////////////////////////////////////////
 // Blynk
 
-// Update below with your Blynk auth token for your device 
+// Update below with your Blynk auth token for your device (automatically populated by Blueprint)
+#define BLYNK_TEMPLATE_ID "13 char template id"
+#define BLYNK_TEMPLATE_NAME "ParticleDeviceBlueprint"
 #define BLYNK_AUTH_TOKEN "your Blynk 32 char auth token"
 
 /////////////////////////////////////////////////////////////////////////
