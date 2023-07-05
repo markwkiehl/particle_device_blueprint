@@ -138,6 +138,9 @@ void setup() {
 **HTTP Headers (optional)**
 
 The 'HTTP Headers' with key "Authorization" has a value consisting of the string "Bearer " (with a space after it), and then followed by the 40 character Particle access token. &nbsp;
+<pre><code>
+Bearer 40_character_Particle_access_token
+</code></pre>
 
 
 ## 8. Testing
