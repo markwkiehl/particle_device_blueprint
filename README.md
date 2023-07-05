@@ -110,25 +110,15 @@ The Blynk webhook will need a Particle access token in order to make a Particle 
 ## 5. Create the Blynk Webhook
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. &nbsp; When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
 
-In the [Blynk.Console](https://blynk.cloud/), navigate to ‘Settings -> Webhooks’ and create one new webhook for datastream V16 based on the information shown in the next image. &nbsp; Some comments about a few of the fields:
+1. In the [Blynk.Console](https://blynk.cloud/), navigate to ‘Settings -> Webhooks’ and create one new webhook for datastream V16 based on the information shown in the next image. &nbsp; 
+
+![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/4551a69255324fa9f0c551440f7514cb6764b464/particle_device_blueprint%20(11).png "Blynk Webhook")
 
 ### WEBHOOK URL
-**WEBBHOOK URL**
 The format is: 
 <pre><code>https://api.particle.io/v1/devices/[your 24 character Particle device ID]/blynk_led</code></pre> &nbsp; 
 
 Substitute your Particle [device ID](https://console.particle.io/) and the 40 character access token you generated earlier in the corresponding form fields. &nbsp;  Your 24 character Particle device ID is available in the [Particle console[(https://console.particle.io/). &nbsp; 
-
-
-The "blynk_led" at the end of the WEBHOOK URL is the Particle cloud function key that is referenced in the firmware as:
-
-
-
-
-The 'DEVICE' field in the form is the Blynk device, selectable from a drop down list. &nbsp;
-
-For the 'WEBHOOK URL' field in the form, the format is:
-<pre><code>https://api.particle.io/v1/devices/[your 24 character Particle device ID]/blynk_led</code></pre>
 
 The "blynk_led" at the end of the WEBHOOK URL is the Particle cloud function key that is referenced in the firmware as:
 
@@ -140,11 +130,12 @@ void setup() {
 }
 </code></pre>
 
+### HTTP Headers (optional)
 The 'HTTP Headers' with key "Authorization" has a value consisting of the string "Bearer " (with a space after it), and then followed by the 40 character Particle access token. &nbsp;
 
-![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/4551a69255324fa9f0c551440f7514cb6764b464/particle_device_blueprint%20(11).png "Blynk Webhook")
+2. After you are finished configuring the webhook, click the ‘Test webhook’ to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). &nbsp; 
 
-After you are finished configuring the webhook, click the ‘Test webhook’ to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). &nbsp; Click the ‘Create Webhook’ button to save it and close the dialog. 
+3. Click the ‘Create Webhook’ button to save it and close the dialog. 
 
 Note that the **Blynk webhook request quota is 1 per minute*** so any datastream value changes sooner than 60 seconds will not execute the webhook. &nbsp;
 
