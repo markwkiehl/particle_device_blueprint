@@ -110,7 +110,16 @@ The Blynk webhook will need a Particle access token in order to make a Particle 
 ## 5. Create the Blynk Webhook
 Control of the Particle hardware remotely from the Blynk web dashboard or mobile app is accomplished using a Blynk webhook and the Particle HTTP API. &nbsp; When the state of the switch widget on the Blynk web dashboard or mobile app is changed, a Blynk webhook assigned to the same datastream is called. &nbsp; The webhook makes a Particle HTTP API call to a Particle cloud function with a device unique token that sends data to the Particle hardware. &nbsp; 
 
-In the [Blynk.Console](https://blynk.cloud/), navigate to ‘Settings -> Webhooks’ and create one new webhook for datastream V16 based on the information shown in the image below. &nbsp; Substitute your Particle [device ID](https://console.particle.io/) and the 40 character access token you generated earlier in the corresponding form fields. &nbsp;  Your 24 character Particle device ID is available in the [Particle console[(https://console.particle.io/). &nbsp; 
+In the [Blynk.Console](https://blynk.cloud/), navigate to ‘Settings -> Webhooks’ and create one new webhook for datastream V16 based on the information shown in the image below. &nbsp; Each field in that form is explained below:
+
+- **WEBHOOK TRIGGER EVENT** - select the option 'Device Sends Data to Datastream'.
+- **WEBHOOK NAME** - a unique name for your webhook
+- **DEVICE** - 
+- **DATASTREAM** - 
+- **WEBBHOOK URL** - the format is: <pre><code>https://api.particle.io/v1/devices/[your 24 character Particle device ID]/blynk_led</code></pre>. &nbsp; The "blynk_led" at the end of the WEBHOOK URL is the Particle cloud function key that is referenced in the firmware as:
+
+
+Substitute your Particle [device ID](https://console.particle.io/) and the 40 character access token you generated earlier in the corresponding form fields. &nbsp;  Your 24 character Particle device ID is available in the [Particle console[(https://console.particle.io/). &nbsp; 
 
 The 'DEVICE' field in the form is the Blynk device, selectable from a drop down list. &nbsp;
 
