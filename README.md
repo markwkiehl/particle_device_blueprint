@@ -352,11 +352,13 @@ int blynkLED(String on_off) {
 </code></pre>
 
 ## Troubleshooting
-If your Particle device has a built-in RGB then it should be breathing cyan if it is connected to the Particle cloud.  &nbsp; Make sure the firmware code provided by activating the Blynk device was uploaded to the hardware. &nbsp;
-
-Perform all of the tests under **Testing** to be sure that each communication step from the Particle hardware to Blynk and back works properly. &nbsp;
+If your Particle device has a built-in RGB then it should be breathing cyan if it is connected to the Particle cloud.  &nbsp; 
 
 Make sure the BLYNK_AUTH_TOKEN in the sketch 'particle_device_blueprint.ino' matches what is shown in the Blynk console 'Search' -> 'Device' -> 'Device Info'. &nbsp;
+
+Make sure the firmware code provided by activating the Blynk device was uploaded to the hardware. &nbsp;
+
+Perform all of the tests under **Testing** to be sure that each communication step from the Particle hardware to Blynk and back works properly. &nbsp;
 
 ## Conclusion
 Using this Blynk blueprint accelerates the configuration of a Particle device for bi-directional communication with Blynk. &nbsp; The Blynk blueprint generates the firmware to be installed on the Particle hardware, creates a Blynk device template with datastreams defined, a web dashboard with widgets, and a mobile app with widgets. &nbsp; The developer needs to create a Blynk webhook, a Particle webhook, provision a Blynk device and upload the firmware to the hardware, and acquire a Particle access token. &nbsp;
