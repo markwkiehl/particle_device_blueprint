@@ -115,6 +115,7 @@ Control of the Particle hardware remotely from the Blynk web dashboard or mobile
 ![alt text](https://github.com/markwkiehl/particle_device_blueprint/raw/4551a69255324fa9f0c551440f7514cb6764b464/particle_device_blueprint%20(11).png "Blynk Webhook")
 
 **WEBHOOK URL**
+
 The format is: 
 <pre><code>https://api.particle.io/v1/devices/[your 24 character Particle device ID]/blynk_led</code></pre> &nbsp; 
 
@@ -131,11 +132,13 @@ void setup() {
 </code></pre>
 
 **HTTP Headers (optional)**
+
 The 'HTTP Headers' with key "Authorization" has a value consisting of the string "Bearer " (with a space after it), and then followed by the 40 character Particle access token. &nbsp;
 
-2. After you are finished configuring the webhook, click the ‘Test webhook’ to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). &nbsp; 
 
-3. Click the ‘Create Webhook’ button to save it and close the dialog. 
+After you are finished configuring the webhook, click the ‘Test webhook’ to verify it doesn’t throw an error (it won’t send the datastream value here, so don’t expect to see the LED on your Particle device change). &nbsp; 
+
+Click the ‘Create Webhook’ button to save it and close the dialog. 
 
 Note that the **Blynk webhook request quota is 1 per minute*** so any datastream value changes sooner than 60 seconds will not execute the webhook. &nbsp;
 
